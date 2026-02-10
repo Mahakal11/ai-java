@@ -1,4 +1,17 @@
-resource "aws_instance" "example" {
-  ami           = "ami-0c55b159cbfafe1d0"
-  instance_type = "t2.micro"
+module "eks" {
+  source  = "terraform-aws-modules/eks/aws"
+  version = "~> 20.0"
+
+  cluster_name    = "aiops-eks"
+  cluster_version = "1.29"
+
+  subnet_ids = ["subnet-xxx", "subnet-yyy"]
+  vpc_id     = "vpc-xxx"
+
+  eks_managed_node_groups = {
+    default = {
+      desired_size = 2
+      instance_types = ["t3.medium"]
+    }
+  }
 }
