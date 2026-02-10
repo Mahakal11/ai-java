@@ -1,11 +1,1 @@
-replicaCount: 1
-image: myapp:latest
-service:
-  type: ClusterIP
-  port: 80
-ingress:
-  enabled: false
-resources: {}
-nodeSelector: {}
-tolerations: []
-affinity: {}
+image: java-aiops:latest
