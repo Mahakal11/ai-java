@@ -1,5 +1,4 @@
-FROM openjdk:11
-
-COPY app/target/app-1.0-SNAPSHOT.jar /app.jar
-
-CMD ["java", "-jar", "/app.jar"]
+FROM eclipse-temurin:17-jre
+WORKDIR /app
+COPY app/target/java-aiops-1.0.jar app.jar
+ENTRYPOINT ["java","-jar","app.jar"]
